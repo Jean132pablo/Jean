@@ -1,0 +1,40 @@
+import pygame
+import random
+
+pygame.init()
+
+# ConfiguraÃ§Ãµes do jogo
+largura, altura = 300, 600
+tamanho_bloco = 30
+velocidade_jogo = 500
+cores = [(0, 0, 0), (255, 0, 0), (0, 255, 0), (0, 0, 255), (255, 255, 0)]
+
+# DefiniÃ§Ã£o das peÃ§as
+peÃ§as = [
+    [[1, 1, 1, 1]],
+    [[1, 1, 1], [1]],
+    [[1, 1, 1], [0, 0, 1]],
+    [[1, 1, 1], [0, 1]],
+    [[1, 1], [1, 1]],
+    [[1, 1, 0], [0, 1, 1]]
+]
+
+# FunÃ§Ã£o para criar uma nova peÃ§a
+def nova_peÃ§a():
+    return random.choice(peÃ§as)
+
+# InicializaÃ§Ã£o da tela
+tela = pygame.display.set_mode((largura, altura))
+pygame.display.set_caption("Tetris")
+
+# Loop principal do jogo
+while True:
+    for evento in pygame.event.get():
+        if evento.type == pygame.QUIT:
+            pygame.quit()
+            exit()
+
+    # LÃ³gica do jogo aqui
+
+    pygame.time.delay(velocidade_jogo)
+    pygame.display.update()
